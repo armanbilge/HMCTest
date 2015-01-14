@@ -1,0 +1,256 @@
+<beast>
+
+	<taxa id="taxa">
+		<taxon id="a"/>
+		<taxon id="b"/>
+		<taxon id="c"/>
+		<taxon id="d"/>
+		<taxon id="e"/>
+		<taxon id="f"/>
+		<taxon id="g"/>
+		<taxon id="h"/>
+	</taxa>
+	
+	<birthDeathSimulator id="trueTree">
+		<birthRate>
+			<parameter id="trueBirthRate" value="2.0"/>
+		</birthRate>
+		<deathRate>
+			<parameter id="trueDeathRate" value="1.0"/>
+		</deathRate>
+		<taxa idref="taxa"/>
+	</birthDeathSimulator>
+
+	<frequencyModel id="frequencyModel" dataType="nucleotide">
+		<frequencies>
+			<parameter id="frequencies" value="0.25 0.25 0.25 0.25"/>
+		</frequencies>
+	</frequencyModel>
+	
+	<sequenceSimulator id="alignment" length="2048">
+		<siteModel>
+			<substitutionModel>
+				<HKYModel>
+					<frequencyModel id="frequencyModel"/>
+					<kappa>
+						<parameter value="2.0" lower="1.0E-8" upper="Infinity"/>
+					</kappa>
+				</HKYModel>
+			</substitutionModel>
+		</siteModel>
+		<birthDeathSimulator idref="trueTree"/>
+		<parameter value="0.01"/>
+	</sequenceSimulator>
+
+	<patterns id="patterns">
+		<sequenceSimulator idref="alignment"/>
+	</patterns>
+
+	<randomizeHeights id="startingTree">
+		<tree idref="trueTree"/>
+	</randomizeHeights>
+
+	<HKYModel id="hky">
+		<frequencyModel id="frequencyModel"/>
+		<kappa>
+			<parameter id="kappa" value="1.0" lower="1.0E-8" upper="Infinity"/>
+		</kappa>
+	</HKYModel>
+
+	<siteModel id="siteModel">
+		<substitutionModel>
+			<HKYModel idref="hky"/>
+		</substitutionModel>
+	</siteModel>
+
+	<birthDeathModel id="birthDeath" units="substitutions">
+		<birthMinusDeathRate>
+			<parameter id="birthDeath.meanGrowthRate" value="1.0" lower="0.0" upper="1000000.0"/>
+		</birthMinusDeathRate>
+		<relativeDeathRate>
+			<parameter id="birthDeath.relativeDeathRate" value="0.5" lower="0.0" upper="1.0"/>
+		</relativeDeathRate>
+	</birthDeathModel>
+
+	<treeModel id="treeModel">
+		<randomizeHeights idref="startingTree"/>
+		<rootHeight>
+			<parameter id="treeModel.rootHeight"/>
+		</rootHeight>
+		<nodeHeights internalNodes="true">
+			<parameter id="treeModel.internalNodeHeights"/>
+		</nodeHeights>
+		<nodeHeights internalNodes="true" rootNode="true">
+			<parameter id="treeModel.allInternalNodeHeights"/>
+		</nodeHeights>
+	</treeModel>
+
+	<speciationLikelihood id="speciation">
+		<model>
+			<birthDeathModel idref="birthDeath"/>
+		</model>
+		<speciesTree>
+			<treeModel idref="treeModel"/>
+		</speciesTree>
+	</speciationLikelihood>
+	
+	<strictClockBranchRates id="branchRates">
+		<rate>
+			<parameter id="clock.rate" value="1.0"/>
+		</rate>
+	</strictClockBranchRates>
+
+	<treeLikelihood id="treeLikelihood" useAmbiguities="false">
+		<patterns idref="patterns"/>
+		<treeModel idref="treeModel"/>
+		<siteModel idref="siteModel"/>
+		<discretizedBranchRates idref="branchRates"/>
+	</treeLikelihood>
+
+	<posterior id="posterior">
+		<prior id="prior">
+			<oneOnXPrior>
+				<parameter idref="kappa"/>
+			</oneOnXPrior>
+			<speciationLikelihood idref="speciation"/>
+		</prior>
+		<likelihood id="likelihood">
+			<treeLikelihood idref="treeLikelihood"/>
+		</likelihood>
+	</posterior>
+
+    <operators id="mcmc.operators">
+        <scaleOperator scaleFactor="0.75" weight="1">
+            <parameter idref="kappa"/>
+        </scaleOperator>
+        <scaleOperator scaleFactor="0.75" weight="3">
+            <parameter idref="clock.rate"/>
+        </scaleOperator>
+        <upDownOperator scaleFactor="0.75" weight="3">
+            <up>
+                <parameter idref="clock.rate"/>
+            </up>
+            <down>
+                <parameter idref="treeModel.allInternalNodeHeights"/>
+            </down>
+        </upDownOperator>
+		<scaleOperator scaleFactor="0.75" weight="3">
+			<parameter idref="birthDeath.meanGrowthRate"/>
+		</scaleOperator>
+		<scaleOperator scaleFactor="0.75" weight="3">
+			<parameter idref="birthDeath.relativeDeathRate"/>
+		</scaleOperator>
+        <scaleOperator scaleFactor="0.75" weight="3">
+            <parameter idref="treeModel.rootHeight"/>
+        </scaleOperator>
+        <uniformOperator weight="30">
+            <parameter idref="treeModel.internalNodeHeights"/>
+        </uniformOperator>
+    </operators>
+
+    <operators id="hmc.operators">
+		<hamiltonianUpdate iterations="100" weight="1">
+			<potential>
+				<posterior idref="posterior"/>
+			</potential>
+			<dimensions>
+				<parameter idref="kappa"/>
+				<parameter idref="clock.rate"/>
+				<parameter idref="treeModel.allInternalNodeHeights"/>
+				<parameter idref="birthDeath.meanGrowthRate"/>
+				<parameter idref="birthDeath.relativeDeathRate"/>
+			</dimensions>
+		</hamiltonianUpdate>
+    </operators>
+
+	<mcmc id="mcmc" chainLength="10000000" autoOptimize="true">
+		<posterior idref="posterior"/>
+		<operators idref="mcmc.operators"/>
+		<log logEvery="1000000">
+			<column label="Posterior" dp="4" width="12">
+				<posterior idref="posterior"/>
+			</column>
+			<column label="Prior" dp="4" width="12">
+				<prior idref="prior"/>
+			</column>
+			<column label="Likelihood" dp="4" width="12">
+				<likelihood idref="likelihood"/>
+			</column>
+			<column label="Root Height" sf="6" width="12">
+				<parameter idref="treeModel.rootHeight"/>
+			</column>
+			<column label="Rate" sf="6" width="12">
+				<rateStatistic idref="clock.rate"/>
+			</column>
+		</log>
+		<log logEvery="1000" fileName="mcmc.log">
+			<posterior idref="posterior"/>
+			<prior idref="prior"/>
+			<likelihood idref="likelihood"/>
+			<parameter idref="treeModel.rootHeight"/>
+			<parameter idref="birthDeath.meanGrowthRate"/>
+			<parameter idref="birthDeath.relativeDeathRate"/>
+			<parameter idref="kappa"/>
+			<parameter idref="clock.rate"/>
+			<treeLikelihood idref="treeLikelihood"/>
+			<speciationLikelihood idref="speciation"/>	
+		</log>
+		<logTree logEvery="1000" nexusFormat="true" fileName="mcmc.trees" sortTranslationTable="true">
+			<treeModel idref="treeModel"/>
+			<strictClockBranchRates idref="branchRates"/>
+			<posterior idref="posterior"/>
+		</logTree>
+	</mcmc>
+	
+	<report>
+		<property name="timer">
+			<mcmc idref="mcmc"/>
+		</property>
+	</report>
+
+	<mcmc id="hmc" chainLength="100000" autoOptimize="true">
+		<posterior idref="posterior"/>
+		<operators idref="hmc.operators"/>
+		<log logEvery="10000">
+			<column label="Posterior" dp="4" width="12">
+				<posterior idref="posterior"/>
+			</column>
+			<column label="Prior" dp="4" width="12">
+				<prior idref="prior"/>
+			</column>
+			<column label="Likelihood" dp="4" width="12">
+				<likelihood idref="likelihood"/>
+			</column>
+			<column label="Root Height" sf="6" width="12">
+				<parameter idref="treeModel.rootHeight"/>
+			</column>
+			<column label="Rate" sf="6" width="12">
+				<rateStatistic idref="clock.rate"/>
+			</column>
+		</log>
+		<log logEvery="10" fileName="hmc.log">
+			<posterior idref="posterior"/>
+			<prior idref="prior"/>
+			<likelihood idref="likelihood"/>
+			<parameter idref="treeModel.rootHeight"/>
+			<parameter idref="birthDeath.meanGrowthRate"/>
+			<parameter idref="birthDeath.relativeDeathRate"/>
+			<parameter idref="kappa"/>
+			<parameter idref="clock.rate"/>
+			<treeLikelihood idref="treeLikelihood"/>
+			<speciationLikelihood idref="speciation"/>
+		</log>
+		<logTree logEvery="10" nexusFormat="true" fileName="hmc.trees" sortTranslationTable="true">
+			<treeModel idref="treeModel"/>
+			<strictClockBranchRates idref="branchRates"/>
+			<posterior idref="posterior"/>
+		</logTree>
+	</mcmc>
+	
+	<report>
+		<property name="timer">
+			<mcmc idref="hmc"/>
+		</property>
+	</report>
+
+</beast>
