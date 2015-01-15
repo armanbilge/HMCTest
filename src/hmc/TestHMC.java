@@ -15,6 +15,7 @@ public class TestHMC implements Plugin {
     public Set<XMLObjectParser> getParsers() {
         final Set<XMLObjectParser> parsers = new HashSet<>();
         parsers.add(new RandomizeHeights());
+        parsers.add(new BirthDeathSimulator());
         parsers.add(SequenceSimulator.PARSER);
         return parsers;
     }
