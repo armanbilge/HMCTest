@@ -11,14 +11,15 @@
         <taxon id="h"/>
 	</taxa>
 
-	<coalescentTree id="trueTree">
+	<birthDeathSimulator id="trueTree">
+		<birthRate>
+			<parameter id="trueBirthRate" value="2.0"/>
+		</birthRate>
+		<deathRate>
+			<parameter id="trueDeathRate" value="1.0"/>
+		</deathRate>
 		<taxa idref="taxa"/>
-    	<constantSize units="substitutions">
-    		<populationSize>
-    			<parameter value="16.0"/>
-    		</populationSize>
-    	</constantSize>
-	</coalescentTree>
+	</birthDeathSimulator>
 
 	<frequencyModel id="frequencyModel" dataType="nucleotide">
 		<frequencies>
@@ -56,14 +57,17 @@
 	</patterns>
 
 	<randomizeHeights id="startingTree">
-		<coalescentTree idref="trueTree"/>
+		<tree idref="trueTree"/>
 	</randomizeHeights>
 
-	<constantSize id="mcmc.constant" units="substitutions">
-		<populationSize>
-			<parameter id="mcmc.constant.popSize" value="1.0" lower="0.0" upper="Infinity"/>
-		</populationSize>
-	</constantSize>
+	<birthDeathModel id="mcmc.birthDeath" units="substitutions">
+		<birthMinusDeathRate>
+			<parameter id="mcmc.birthDeath.meanGrowthRate" value="1.0" lower="0.0" upper="1000000.0"/>
+		</birthMinusDeathRate>
+		<relativeDeathRate>
+			<parameter id="mcmc.birthDeath.relativeDeathRate" value="0.5" lower="0.0" upper="1.0"/>
+		</relativeDeathRate>
+	</birthDeathModel>
 
 	<treeModel id="mcmc.treeModel">
 		<randomizeHeights idref="startingTree"/>
@@ -78,14 +82,14 @@
 		</nodeHeights>
 	</treeModel>
 
-	<coalescentLikelihood id="mcmc.coalescent">
+	<speciationLikelihood id="mcmc.speciation">
 		<model>
-			<constantSize idref="mcmc.constant"/>
+			<birthDeathModel idref="mcmc.birthDeath"/>
 		</model>
-		<populationTree>
+		<speciesTree>
 			<treeModel idref="mcmc.treeModel"/>
-		</populationTree>
-	</coalescentLikelihood>
+		</speciesTree>
+	</speciationLikelihood>
 
 	<treeLikelihood id="mcmc.treeLikelihood" useAmbiguities="false">
 		<patterns idref="patterns"/>
@@ -107,13 +111,10 @@
 
 	<posterior id="mcmc.posterior">
 		<prior id="mcmc.prior">
-            <oneOnXPrior>
-                <parameter idref="mcmc.kappa"/>
-            </oneOnXPrior>
 			<oneOnXPrior>
-				<parameter idref="mcmc.constant.popSize"/>
+				<parameter idref="mcmc.kappa"/>
 			</oneOnXPrior>
-			<coalescentLikelihood idref="mcmc.coalescent"/>
+			<speciationLikelihood idref="mcmc.speciation"/>
 		</prior>
 		<likelihood id="mcmc.likelihood">
 			<treeLikelihood idref="mcmc.treeLikelihood"/>
@@ -125,17 +126,20 @@
             <parameter idref="mcmc.kappa"/>
         </scaleOperator>
 		<scaleOperator scaleFactor="0.75" weight="3">
-			<parameter idref="mcmc.constant.popSize"/>
+			<parameter idref="mcmc.birthDeath.meanGrowthRate"/>
+		</scaleOperator>
+		<scaleOperator scaleFactor="0.75" weight="3">
+			<parameter idref="mcmc.birthDeath.relativeDeathRate"/>
 		</scaleOperator>
         <scaleOperator scaleFactor="0.75" weight="3">
             <parameter idref="mcmc.treeModel.rootHeight"/>
         </scaleOperator>
-        <uniformOperator weight="30">
+        <!-- <uniformOperator weight="30">
             <parameter idref="mcmc.treeModel.internalNodeHeights"/>
-        </uniformOperator>
+        </uniformOperator> -->
     </operators>
 
-    <mcmc id="mcmc" chainLength="10000000" autoOptimize="true">
+    <!-- <mcmc id="mcmc" chainLength="10000000" autoOptimize="true">
         <posterior idref="mcmc.posterior"/>
         <operators idref="mcmc.operators"/>
         <log logEvery="1000000">
@@ -160,10 +164,12 @@
             <prior idref="mcmc.prior"/>
             <likelihood idref="mcmc.likelihood"/>
             <parameter idref="mcmc.treeModel.allInternalNodeHeights"/>
-            <parameter idref="mcmc.constant.popSize"/>
+            <parameter idref="mcmc.birthDeath.meanGrowthRate"/>
+            <parameter idref="mcmc.birthDeath.relativeDeathRate"/>
             <parameter idref="mcmc.kappa"/>
             <parameter idref="clock.rate"/>
             <treeLikelihood idref="mcmc.treeLikelihood"/>
+            <speciationLikelihood idref="mcmc.speciation"/>
         </log>
     </mcmc>
 
@@ -171,13 +177,16 @@
         <property name="timer">
             <mcmc idref="mcmc"/>
         </property>
-    </report>
+    </report> -->
 
-	<constantSize id="hmc.constant" units="substitutions">
-		<populationSize>
-			<parameter id="hmc.constant.popSize" value="1.0" lower="0.0" upper="Infinity"/>
-		</populationSize>
-	</constantSize>
+	<birthDeathModel id="hmc.birthDeath" units="substitutions">
+		<birthMinusDeathRate>
+			<parameter id="hmc.birthDeath.meanGrowthRate" value="1.0" lower="0.0" upper="1000000.0"/>
+		</birthMinusDeathRate>
+		<relativeDeathRate>
+			<parameter id="hmc.birthDeath.relativeDeathRate" value="0.5" lower="0.0" upper="1.0"/>
+		</relativeDeathRate>
+	</birthDeathModel>
 
 	<treeModel id="hmc.treeModel">
 		<randomizeHeights idref="startingTree"/>
@@ -192,14 +201,14 @@
 		</nodeHeights>
 	</treeModel>
 
-	<coalescentLikelihood id="hmc.coalescent">
+	<speciationLikelihood id="hmc.speciation">
 		<model>
-			<constantSize idref="hmc.constant"/>
+			<birthDeathModel idref="mcmc.birthDeath"/>
 		</model>
-		<populationTree>
+		<speciesTree>
 			<treeModel idref="hmc.treeModel"/>
-		</populationTree>
-	</coalescentLikelihood>
+		</speciesTree>
+	</speciationLikelihood>
 
 	<treeLikelihood id="hmc.treeLikelihood" useAmbiguities="false">
 		<patterns idref="patterns"/>
@@ -221,17 +230,14 @@
 
 	<posterior id="hmc.posterior">
 		<prior id="hmc.prior">
-            <oneOnXPrior>
+            <!-- <oneOnXPrior>
                 <parameter idref="hmc.kappa"/>
-            </oneOnXPrior>
-			<oneOnXPrior>
-				<parameter idref="hmc.constant.popSize"/>
-			</oneOnXPrior>
-			<coalescentLikelihood idref="hmc.coalescent"/>
+            </oneOnXPrior> -->
+			<speciationLikelihood idref="hmc.speciation"/>
 		</prior>
-        <likelihood id="hmc.likelihood">
+        <!-- <likelihood id="hmc.likelihood">
             <treeLikelihood idref="hmc.treeLikelihood"/>
-        </likelihood>
+        </likelihood> -->
 	</posterior>
 
     <operators id="hmc.operators">
@@ -240,9 +246,10 @@
 				<posterior idref="hmc.posterior"/>
 			</potential>
 			<dimensions>
-				<parameter idref="hmc.kappa"/>
+                <!-- <parameter idref="hmc.kappa"/> -->
 				<parameter idref="hmc.treeModel.internalNodeHeights"/>
-				<parameter idref="hmc.constant.popSize"/>
+				<parameter idref="hmc.birthDeath.meanGrowthRate"/>
+				<parameter idref="hmc.birthDeath.relativeDeathRate"/>
 			</dimensions>
 		</hamiltonUpdate>
     </operators>
@@ -257,9 +264,9 @@
 			<column label="Prior" dp="4" width="12">
 				<prior idref="hmc.prior"/>
 			</column>
-            <column label="Likelihood" dp="4" width="12">
+            <!-- <column label="Likelihood" dp="4" width="12">
                 <likelihood idref="hmc.likelihood"/>
-            </column>
+            </column> -->
 			<column label="Root Height" sf="6" width="12">
 				<parameter idref="hmc.treeModel.rootHeight"/>
 			</column>
@@ -270,12 +277,14 @@
 		<log logEvery="10" fileName="hmc.log">
 			<posterior idref="hmc.posterior"/>
 			<prior idref="hmc.prior"/>
-            <likelihood idref="hmc.likelihood"/>
+            <!-- <likelihood idref="hmc.likelihood"/> -->
 			<parameter idref="hmc.treeModel.allInternalNodeHeights"/>
-			<parameter idref="hmc.constant.popSize"/>
+			<parameter idref="hmc.birthDeath.meanGrowthRate"/>
+			<parameter idref="hmc.birthDeath.relativeDeathRate"/>
 			<parameter idref="hmc.kappa"/>
 			<parameter idref="clock.rate"/>
 			<treeLikelihood idref="hmc.treeLikelihood"/>
+			<speciationLikelihood idref="hmc.speciation"/>
 		</log>
 	</mcmc>
 

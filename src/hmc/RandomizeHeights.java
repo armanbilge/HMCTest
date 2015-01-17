@@ -22,7 +22,8 @@ public class RandomizeHeights extends AbstractXMLObjectParser<SimpleTree> {
             final NodeRef n = tree.getInternalNode(i);
             final double lower = Math.max(tree.getNodeHeight(tree.getChild(n, 0)), tree.getNodeHeight(tree.getChild(n, 1)));
             final double upper = tree.isRoot(n) ? 2 * tree.getNodeHeight(n) : tree.getNodeHeight(tree.getParent(n));
-            tree.setNodeHeight(n, MathUtils.nextDouble() * (upper - lower) + lower);
+            if (!tree.isRoot(n))
+                tree.setNodeHeight(n, MathUtils.nextDouble() * (upper - lower) + lower);
         }
         return tree;
     }
