@@ -5,6 +5,7 @@ import beast.evolution.tree.SimpleTree;
 import beast.evolution.tree.Tree;
 import beast.math.MathUtils;
 import beast.xml.AbstractXMLObjectParser;
+import beast.xml.AttributeRule;
 import beast.xml.ElementRule;
 import beast.xml.XMLObject;
 import beast.xml.XMLParseException;
@@ -22,7 +23,7 @@ public class RandomizeHeights extends AbstractXMLObjectParser<SimpleTree> {
             final NodeRef n = tree.getInternalNode(i);
             final double lower = Math.max(tree.getNodeHeight(tree.getChild(n, 0)), tree.getNodeHeight(tree.getChild(n, 1)));
             final double upper = tree.isRoot(n) ? 2 * tree.getNodeHeight(n) : tree.getNodeHeight(tree.getParent(n));
-            if (!tree.isRoot(n))
+            if (!tree.isRoot(n) || xo.getAttribute("root", true))
                 tree.setNodeHeight(n, MathUtils.nextDouble() * (upper - lower) + lower);
         }
         return tree;
@@ -30,7 +31,7 @@ public class RandomizeHeights extends AbstractXMLObjectParser<SimpleTree> {
 
     @Override
     public XMLSyntaxRule[] getSyntaxRules() {
-        return new XMLSyntaxRule[] {new ElementRule(Tree.class)};
+        return new XMLSyntaxRule[] {new ElementRule(Tree.class), AttributeRule.newBooleanRule("root", true)};
     }
 
     @Override

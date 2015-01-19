@@ -17,6 +17,7 @@ public class TestHMC implements Plugin {
         parsers.add(new RandomizeHeights());
         parsers.add(new BirthDeathSimulator());
         parsers.add(SequenceSimulator.PARSER);
+        parsers.add(EuclidianDistanceStatistic.PARSER);
         return parsers;
     }
 }
