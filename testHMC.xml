@@ -4,18 +4,522 @@
 		<taxon id="a"/>
 		<taxon id="b"/>
         <taxon id="c"/>
-        <taxon id="d"/>
-        <taxon id="e"/>
+        <!-- <taxon id="d"/> -->
+        <!-- <taxon id="e"/>
         <taxon id="f"/>
         <taxon id="g"/>
         <taxon id="h"/>
+        <taxon id="i"/>
+        <taxon id="j"/>
+        <taxon id="k"/>
+        <taxon id="l"/>
+        <taxon id="m"/>
+        <taxon id="n"/>
+        <taxon id="o"/>
+        <taxon id="p"/>
+        <taxon id="q"/>
+        <taxon id="r"/>
+        <taxon id="s"/>
+        <taxon id="t"/>
+        <taxon id="u"/>
+        <taxon id="v"/>
+        <taxon id="w"/>
+        <taxon id="x"/>
+        <taxon id="y"/>
+        <taxon id="z"/>
+        <taxon id="aa"/>
+        <taxon id="ab"/>
+        <taxon id="ac"/>
+        <taxon id="ad"/>
+        <taxon id="ae"/>
+        <taxon id="af"/> -->
+        <!-- <taxon id="ag"/>
+        <taxon id="ah"/>
+        <taxon id="ai"/>
+        <taxon id="aj"/>
+        <taxon id="ak"/>
+        <taxon id="al"/>
+        <taxon id="am"/>
+        <taxon id="an"/>
+        <taxon id="ao"/>
+        <taxon id="ap"/>
+        <taxon id="aq"/>
+        <taxon id="ar"/>
+        <taxon id="as"/>
+        <taxon id="at"/>
+        <taxon id="au"/>
+        <taxon id="av"/>
+        <taxon id="aw"/>
+        <taxon id="ax"/>
+        <taxon id="ay"/>
+        <taxon id="az"/>
+        <taxon id="ba"/>
+        <taxon id="bb"/>
+        <taxon id="bc"/>
+        <taxon id="bd"/>
+        <taxon id="be"/>
+        <taxon id="bf"/>
+        <taxon id="bg"/>
+        <taxon id="bh"/>
+        <taxon id="bi"/>
+        <taxon id="bj"/>
+        <taxon id="bk"/>
+        <taxon id="bl"/> -->
+        <!-- <taxon id="bm"/>
+        <taxon id="bn"/>
+        <taxon id="bo"/>
+        <taxon id="bp"/>
+        <taxon id="bq"/>
+        <taxon id="br"/>
+        <taxon id="bs"/>
+        <taxon id="bt"/>
+        <taxon id="bu"/>
+        <taxon id="bv"/>
+        <taxon id="bw"/>
+        <taxon id="bx"/>
+        <taxon id="by"/>
+        <taxon id="bz"/>
+        <taxon id="ca"/>
+        <taxon id="cb"/>
+        <taxon id="cc"/>
+        <taxon id="cd"/>
+        <taxon id="ce"/>
+        <taxon id="cf"/>
+        <taxon id="cg"/>
+        <taxon id="ch"/>
+        <taxon id="ci"/>
+        <taxon id="cj"/>
+        <taxon id="ck"/>
+        <taxon id="cl"/>
+        <taxon id="cm"/>
+        <taxon id="cn"/>
+        <taxon id="co"/>
+        <taxon id="cp"/>
+        <taxon id="cq"/>
+        <taxon id="cr"/>
+        <taxon id="cs"/>
+        <taxon id="ct"/>
+        <taxon id="cu"/>
+        <taxon id="cv"/>
+        <taxon id="cw"/>
+        <taxon id="cx"/>
+        <taxon id="cy"/>
+        <taxon id="cz"/>
+        <taxon id="da"/>
+        <taxon id="db"/>
+        <taxon id="dc"/>
+        <taxon id="dd"/>
+        <taxon id="de"/>
+        <taxon id="df"/>
+        <taxon id="dg"/>
+        <taxon id="dh"/>
+        <taxon id="di"/>
+        <taxon id="dj"/>
+        <taxon id="dk"/>
+        <taxon id="dl"/>
+        <taxon id="dm"/>
+        <taxon id="dn"/>
+        <taxon id="do"/>
+        <taxon id="dp"/>
+        <taxon id="dq"/>
+        <taxon id="dr"/>
+        <taxon id="ds"/>
+        <taxon id="dt"/>
+        <taxon id="du"/>
+        <taxon id="dv"/>
+        <taxon id="dw"/>
+        <taxon id="dx"/> -->
+		<!-- <taxon id="dy"/>
+        <taxon id="dz"/>
+        <taxon id="ea"/>
+        <taxon id="eb"/>
+        <taxon id="ec"/>
+        <taxon id="ed"/>
+        <taxon id="ee"/>
+        <taxon id="ef"/>
+        <taxon id="eg"/>
+        <taxon id="eh"/>
+        <taxon id="ei"/>
+        <taxon id="ej"/>
+        <taxon id="ek"/>
+        <taxon id="el"/>
+        <taxon id="em"/>
+        <taxon id="en"/>
+        <taxon id="eo"/>
+        <taxon id="ep"/>
+        <taxon id="eq"/>
+        <taxon id="er"/>
+        <taxon id="es"/>
+        <taxon id="et"/>
+        <taxon id="eu"/>
+        <taxon id="ev"/>
+        <taxon id="ew"/>
+        <taxon id="ex"/>
+        <taxon id="ey"/>
+        <taxon id="ez"/>
+        <taxon id="fa"/>
+        <taxon id="fb"/>
+        <taxon id="fc"/>
+        <taxon id="fd"/>
+        <taxon id="fe"/>
+        <taxon id="ff"/>
+        <taxon id="fg"/>
+        <taxon id="fh"/>
+        <taxon id="fi"/>
+        <taxon id="fj"/>
+        <taxon id="fk"/>
+        <taxon id="fl"/>
+        <taxon id="fm"/>
+        <taxon id="fn"/>
+        <taxon id="fo"/>
+        <taxon id="fp"/>
+        <taxon id="fq"/>
+        <taxon id="fr"/>
+        <taxon id="fs"/>
+        <taxon id="ft"/>
+        <taxon id="fu"/>
+        <taxon id="fv"/>
+        <taxon id="fw"/>
+        <taxon id="fx"/>
+        <taxon id="fy"/>
+        <taxon id="fz"/>
+        <taxon id="ga"/>
+        <taxon id="gb"/>
+        <taxon id="gc"/>
+        <taxon id="gd"/>
+        <taxon id="ge"/>
+        <taxon id="gf"/>
+        <taxon id="gg"/>
+        <taxon id="gh"/>
+        <taxon id="gi"/>
+        <taxon id="gj"/>
+        <taxon id="gk"/>
+        <taxon id="gl"/>
+        <taxon id="gm"/>
+        <taxon id="gn"/>
+        <taxon id="go"/>
+        <taxon id="gp"/>
+        <taxon id="gq"/>
+        <taxon id="gr"/>
+        <taxon id="gs"/>
+        <taxon id="gt"/>
+        <taxon id="gu"/>
+        <taxon id="gv"/>
+        <taxon id="gw"/>
+        <taxon id="gx"/>
+        <taxon id="gy"/>
+        <taxon id="gz"/>
+        <taxon id="ha"/>
+        <taxon id="hb"/>
+        <taxon id="hc"/>
+        <taxon id="hd"/>
+        <taxon id="he"/>
+        <taxon id="hf"/>
+        <taxon id="hg"/>
+        <taxon id="hh"/>
+        <taxon id="hi"/>
+        <taxon id="hj"/>
+        <taxon id="hk"/>
+        <taxon id="hl"/>
+        <taxon id="hm"/>
+        <taxon id="hn"/>
+        <taxon id="ho"/>
+        <taxon id="hp"/>
+        <taxon id="hq"/>
+        <taxon id="hr"/>
+        <taxon id="hs"/>
+        <taxon id="ht"/>
+        <taxon id="hu"/>
+        <taxon id="hv"/>
+        <taxon id="hw"/>
+        <taxon id="hx"/>
+        <taxon id="hy"/>
+        <taxon id="hz"/>
+        <taxon id="ia"/>
+        <taxon id="ib"/>
+        <taxon id="ic"/>
+        <taxon id="id"/>
+        <taxon id="ie"/>
+        <taxon id="if"/>
+        <taxon id="ig"/>
+        <taxon id="ih"/>
+        <taxon id="ii"/>
+        <taxon id="ij"/>
+        <taxon id="ik"/>
+        <taxon id="il"/>
+        <taxon id="im"/>
+        <taxon id="in"/>
+        <taxon id="io"/>
+        <taxon id="ip"/>
+        <taxon id="iq"/>
+        <taxon id="ir"/>
+        <taxon id="is"/>
+        <taxon id="it"/>
+        <taxon id="iu"/>
+        <taxon id="iv"/>
+        <taxon id="iw"/>
+        <taxon id="ix"/>
+        <taxon id="iy"/>
+        <taxon id="iz"/>
+        <taxon id="ja"/>
+        <taxon id="jb"/>
+        <taxon id="jc"/>
+        <taxon id="jd"/>
+        <taxon id="je"/>
+        <taxon id="jf"/>
+        <taxon id="jg"/>
+        <taxon id="jh"/>
+        <taxon id="ji"/>
+        <taxon id="jj"/>
+        <taxon id="jk"/>
+        <taxon id="jl"/>
+        <taxon id="jm"/>
+        <taxon id="jn"/>
+        <taxon id="jo"/>
+        <taxon id="jp"/>
+        <taxon id="jq"/>
+        <taxon id="jr"/>
+        <taxon id="js"/>
+        <taxon id="jt"/>
+        <taxon id="ju"/>
+        <taxon id="jv"/>
+        <taxon id="jw"/>
+        <taxon id="jx"/>
+        <taxon id="jy"/>
+        <taxon id="jz"/>
+        <taxon id="ka"/>
+        <taxon id="kb"/>
+        <taxon id="kc"/>
+        <taxon id="kd"/>
+        <taxon id="ke"/>
+        <taxon id="kf"/>
+        <taxon id="kg"/>
+        <taxon id="kh"/>
+        <taxon id="ki"/>
+        <taxon id="kj"/>
+        <taxon id="kk"/>
+        <taxon id="kl"/>
+        <taxon id="km"/>
+        <taxon id="kn"/>
+        <taxon id="ko"/>
+        <taxon id="kp"/>
+        <taxon id="kq"/>
+        <taxon id="kr"/>
+        <taxon id="ks"/>
+        <taxon id="kt"/>
+        <taxon id="ku"/>
+        <taxon id="kv"/>
+        <taxon id="kw"/>
+        <taxon id="kx"/>
+        <taxon id="ky"/>
+        <taxon id="kz"/>
+        <taxon id="la"/>
+        <taxon id="lb"/>
+        <taxon id="lc"/>
+        <taxon id="ld"/>
+        <taxon id="le"/>
+        <taxon id="lf"/>
+        <taxon id="lg"/>
+        <taxon id="lh"/>
+        <taxon id="li"/>
+        <taxon id="lj"/>
+        <taxon id="lk"/>
+        <taxon id="ll"/>
+        <taxon id="lm"/>
+        <taxon id="ln"/>
+        <taxon id="lo"/>
+        <taxon id="lp"/>
+        <taxon id="lq"/>
+        <taxon id="lr"/>
+        <taxon id="ls"/>
+        <taxon id="lt"/>
+        <taxon id="lu"/>
+        <taxon id="lv"/>
+        <taxon id="lw"/>
+        <taxon id="lx"/>
+        <taxon id="ly"/>
+        <taxon id="lz"/>
+        <taxon id="ma"/>
+        <taxon id="mb"/>
+        <taxon id="mc"/>
+        <taxon id="md"/>
+        <taxon id="me"/>
+        <taxon id="mf"/>
+        <taxon id="mg"/>
+        <taxon id="mh"/>
+        <taxon id="mi"/>
+        <taxon id="mj"/>
+        <taxon id="mk"/>
+        <taxon id="ml"/>
+        <taxon id="mm"/>
+        <taxon id="mn"/>
+        <taxon id="mo"/>
+        <taxon id="mp"/>
+        <taxon id="mq"/>
+        <taxon id="mr"/>
+        <taxon id="ms"/>
+        <taxon id="mt"/>
+        <taxon id="mu"/>
+        <taxon id="mv"/>
+        <taxon id="mw"/>
+        <taxon id="mx"/>
+        <taxon id="my"/>
+        <taxon id="mz"/>
+        <taxon id="na"/>
+        <taxon id="nb"/>
+        <taxon id="nc"/>
+        <taxon id="nd"/>
+        <taxon id="ne"/>
+        <taxon id="nf"/>
+        <taxon id="ng"/>
+        <taxon id="nh"/>
+        <taxon id="ni"/>
+        <taxon id="nj"/>
+        <taxon id="nk"/>
+        <taxon id="nl"/>
+        <taxon id="nm"/>
+        <taxon id="nn"/>
+        <taxon id="no"/>
+        <taxon id="np"/>
+        <taxon id="nq"/>
+        <taxon id="nr"/>
+        <taxon id="ns"/>
+        <taxon id="nt"/>
+        <taxon id="nu"/>
+        <taxon id="nv"/>
+        <taxon id="nw"/>
+        <taxon id="nx"/>
+        <taxon id="ny"/>
+        <taxon id="nz"/>
+        <taxon id="oa"/>
+        <taxon id="ob"/>
+        <taxon id="oc"/>
+        <taxon id="od"/>
+        <taxon id="oe"/>
+        <taxon id="of"/>
+        <taxon id="og"/>
+        <taxon id="oh"/>
+        <taxon id="oi"/>
+        <taxon id="oj"/>
+        <taxon id="ok"/>
+        <taxon id="ol"/>
+        <taxon id="om"/>
+        <taxon id="on"/>
+        <taxon id="oo"/>
+        <taxon id="op"/>
+        <taxon id="oq"/>
+        <taxon id="or"/>
+        <taxon id="os"/>
+        <taxon id="ot"/>
+        <taxon id="ou"/>
+        <taxon id="ov"/>
+        <taxon id="ow"/>
+        <taxon id="ox"/>
+        <taxon id="oy"/>
+        <taxon id="oz"/>
+        <taxon id="pa"/>
+        <taxon id="pb"/>
+        <taxon id="pc"/>
+        <taxon id="pd"/>
+        <taxon id="pe"/>
+        <taxon id="pf"/>
+        <taxon id="pg"/>
+        <taxon id="ph"/>
+        <taxon id="pi"/>
+        <taxon id="pj"/>
+        <taxon id="pk"/>
+        <taxon id="pl"/>
+        <taxon id="pm"/>
+        <taxon id="pn"/>
+        <taxon id="po"/>
+        <taxon id="pp"/>
+        <taxon id="pq"/>
+        <taxon id="pr"/>
+        <taxon id="ps"/>
+        <taxon id="pt"/>
+        <taxon id="pu"/>
+        <taxon id="pv"/>
+        <taxon id="pw"/>
+        <taxon id="px"/>
+        <taxon id="py"/>
+        <taxon id="pz"/>
+        <taxon id="qa"/>
+        <taxon id="qb"/>
+        <taxon id="qc"/>
+        <taxon id="qd"/>
+        <taxon id="qe"/>
+        <taxon id="qf"/>
+        <taxon id="qg"/>
+        <taxon id="qh"/>
+        <taxon id="qi"/>
+        <taxon id="qj"/>
+        <taxon id="qk"/>
+        <taxon id="ql"/>
+        <taxon id="qm"/>
+        <taxon id="qn"/>
+        <taxon id="qo"/>
+        <taxon id="qp"/>
+        <taxon id="qq"/>
+        <taxon id="qr"/>
+        <taxon id="qs"/>
+        <taxon id="qt"/>
+        <taxon id="qu"/>
+        <taxon id="qv"/>
+        <taxon id="qw"/>
+        <taxon id="qx"/>
+        <taxon id="qy"/>
+        <taxon id="qz"/>
+        <taxon id="ra"/>
+        <taxon id="rb"/>
+        <taxon id="rc"/>
+        <taxon id="rd"/>
+        <taxon id="re"/>
+        <taxon id="rf"/>
+        <taxon id="rg"/>
+        <taxon id="rh"/>
+        <taxon id="ri"/>
+        <taxon id="rj"/>
+        <taxon id="rk"/>
+        <taxon id="rl"/>
+        <taxon id="rm"/>
+        <taxon id="rn"/>
+        <taxon id="ro"/>
+        <taxon id="rp"/>
+        <taxon id="rq"/>
+        <taxon id="rr"/>
+        <taxon id="rs"/>
+        <taxon id="rt"/>
+        <taxon id="ru"/>
+        <taxon id="rv"/>
+        <taxon id="rw"/>
+        <taxon id="rx"/>
+        <taxon id="ry"/>
+        <taxon id="rz"/>
+        <taxon id="sa"/>
+        <taxon id="sb"/>
+        <taxon id="sc"/>
+        <taxon id="sd"/>
+        <taxon id="se"/>
+        <taxon id="sf"/>
+        <taxon id="sg"/>
+        <taxon id="sh"/>
+        <taxon id="si"/>
+        <taxon id="sj"/>
+        <taxon id="sk"/>
+        <taxon id="sl"/>
+        <taxon id="sm"/>
+        <taxon id="sn"/>
+        <taxon id="so"/>
+        <taxon id="sp"/>
+        <taxon id="sq"/>
+        <taxon id="sr"/> -->
 	</taxa>
 
 	<coalescentTree id="trueTree">
 		<taxa idref="taxa"/>
     	<constantSize units="substitutions">
     		<populationSize>
-    			<parameter value="16.0"/>
+    			<parameter value="0.5"/>
     		</populationSize>
     	</constantSize>
 	</coalescentTree>
@@ -38,15 +542,15 @@
                     	</beast_frequencyModel>
 					</frequencies>
 					<kappa>
-						<parameter value="8.0" lower="1.0E-8" upper="Infinity"/>
+						<parameter id="kappa" value="8.0" lower="1.0E-8" upper="Infinity"/>
 					</kappa>
 				</beast_hkyModel>
 			</substitutionModel>
 		</beast_siteModel>
-		<birthDeathSimulator idref="trueTree"/>
+		<coalescentTree idref="trueTree"/>
 		<strictClockBranchRates id="branchRates">
 			<rate>
-				<parameter id="clock.rate" value="0.01"/>
+				<parameter id="clock.rate" value="0.15"/>
 			</rate>
 		</strictClockBranchRates>
 	</sequenceSimulator>
@@ -87,7 +591,7 @@
 		</populationTree>
 	</coalescentLikelihood>
 
-	<treeLikelihood id="mcmc.treeLikelihood" useAmbiguities="false">
+	<treeLikelihood id="mcmc.treeLikelihood" useAmbiguities="true">
 		<patterns idref="patterns"/>
 		<treeModel idref="mcmc.treeModel"/>
 		<siteModel>
@@ -97,7 +601,8 @@
 						<frequencyModel idref="frequencyModel"/>
 					</frequencies>
 					<kappa>
-						<parameter id="mcmc.kappa" value="1.0" lower="1.0E-8" upper="Infinity"/>
+                        <!-- <parameter id="mcmc.kappa" value="1.0" lower="1.0E-8" upper="Infinity"/> -->
+                        <parameter idref="kappa"/>
 					</kappa>
 				</hkyModel>
 			</substitutionModel>
@@ -107,9 +612,9 @@
 
 	<posterior id="mcmc.posterior">
 		<prior id="mcmc.prior">
-            <oneOnXPrior>
+            <!-- <oneOnXPrior>
                 <parameter idref="mcmc.kappa"/>
-            </oneOnXPrior>
+            </oneOnXPrior> -->
 			<oneOnXPrior>
 				<parameter idref="mcmc.constant.popSize"/>
 			</oneOnXPrior>
@@ -121,9 +626,6 @@
 	</posterior>
 
     <operators id="mcmc.operators">
-        <scaleOperator scaleFactor="0.75" weight="1">
-            <parameter idref="mcmc.kappa"/>
-        </scaleOperator>
 		<scaleOperator scaleFactor="0.75" weight="3">
 			<parameter idref="mcmc.constant.popSize"/>
 		</scaleOperator>
@@ -134,44 +636,6 @@
             <parameter idref="mcmc.treeModel.internalNodeHeights"/>
         </uniformOperator>
     </operators>
-
-    <mcmc id="mcmc" chainLength="10000000" autoOptimize="true">
-        <posterior idref="mcmc.posterior"/>
-        <operators idref="mcmc.operators"/>
-        <log logEvery="1000000">
-            <column label="Posterior" dp="4" width="12">
-                <posterior idref="mcmc.posterior"/>
-            </column>
-            <column label="Prior" dp="4" width="12">
-                <prior idref="mcmc.prior"/>
-            </column>
-            <column label="Likelihood" dp="4" width="12">
-                <likelihood idref="mcmc.likelihood"/>
-            </column>
-            <column label="Root Height" sf="6" width="12">
-                <parameter idref="mcmc.treeModel.rootHeight"/>
-            </column>
-            <column label="Rate" sf="6" width="12">
-                <parameter idref="clock.rate"/>
-            </column>
-        </log>
-        <log logEvery="1000" fileName="mcmc.log">
-            <posterior idref="mcmc.posterior"/>
-            <prior idref="mcmc.prior"/>
-            <likelihood idref="mcmc.likelihood"/>
-            <parameter idref="mcmc.treeModel.allInternalNodeHeights"/>
-            <parameter idref="mcmc.constant.popSize"/>
-            <parameter idref="mcmc.kappa"/>
-            <parameter idref="clock.rate"/>
-            <treeLikelihood idref="mcmc.treeLikelihood"/>
-        </log>
-    </mcmc>
-
-    <report>
-        <property name="timer">
-            <mcmc idref="mcmc"/>
-        </property>
-    </report>
 
 	<constantSize id="hmc.constant" units="substitutions">
 		<populationSize>
@@ -201,7 +665,7 @@
 		</populationTree>
 	</coalescentLikelihood>
 
-	<treeLikelihood id="hmc.treeLikelihood" useAmbiguities="false">
+	<treeLikelihood id="hmc.treeLikelihood" useAmbiguities="true">
 		<patterns idref="patterns"/>
 		<treeModel idref="hmc.treeModel"/>
 		<siteModel>
@@ -211,7 +675,8 @@
 						<frequencyModel idref="frequencyModel"/>
 					</frequencies>
 					<kappa>
-						<parameter id="hmc.kappa" value="1.0" lower="1.0E-8" upper="Infinity"/>
+                        <!-- <parameter id="hmc.kappa" value="1.0" lower="1.0E-8" upper="Infinity"/> -->
+                        <parameter idref="kappa"/>
 					</kappa>
 				</hkyModel>
 			</substitutionModel>
@@ -221,9 +686,9 @@
 
 	<posterior id="hmc.posterior">
 		<prior id="hmc.prior">
-            <oneOnXPrior>
+            <!-- <oneOnXPrior>
                 <parameter idref="hmc.kappa"/>
-            </oneOnXPrior>
+            </oneOnXPrior> -->
 			<oneOnXPrior>
 				<parameter idref="hmc.constant.popSize"/>
 			</oneOnXPrior>
@@ -235,49 +700,71 @@
 	</posterior>
 
     <operators id="hmc.operators">
-		<hamiltonUpdate iterations="100" weight="1">
+		<hamiltonUpdate id="hamilton" weight="1">
 			<potential>
 				<posterior idref="hmc.posterior"/>
 			</potential>
 			<dimensions>
-				<parameter idref="hmc.kappa"/>
-				<parameter idref="hmc.treeModel.internalNodeHeights"/>
 				<parameter idref="hmc.constant.popSize"/>
 			</dimensions>
+            <trees>
+                <treeModel idref="hmc.treeModel"/>
+            </trees>
 		</hamiltonUpdate>
     </operators>
 
-	<mcmc id="hmc" chainLength="100000" autoOptimize="true">
-		<posterior idref="hmc.posterior"/>
-		<operators idref="hmc.operators"/>
-		<log logEvery="10000">
-			<column label="Posterior" dp="4" width="12">
-				<posterior idref="hmc.posterior"/>
-			</column>
-			<column label="Prior" dp="4" width="12">
-				<prior idref="hmc.prior"/>
-			</column>
-            <column label="Likelihood" dp="4" width="12">
+    <!-- <concurrent> -->
+        <!-- <mcmc id="mcmc" chainLength="200000" autoOptimize="true" storeEvery="0" operatorAnalysis="mcmc.ops">
+            <posterior idref="mcmc.posterior"/>
+            <operators idref="mcmc.operators"/>
+            <log logEvery="2000">
+                <column label="Posterior" dp="4" width="12">
+                    <posterior idref="mcmc.posterior"/>
+                </column>
+            </log>
+            <log logEvery="20" fileName="mcmc.log">
+                <posterior idref="mcmc.posterior"/>
+                <prior idref="mcmc.prior"/>
+                <likelihood idref="mcmc.likelihood"/>
+                <parameter idref="mcmc.treeModel.allInternalNodeHeights"/>
+                <parameter idref="mcmc.constant.popSize"/>
+                <parameter idref="kappa"/>
+                <parameter idref="clock.rate"/>
+                <treeLikelihood idref="mcmc.treeLikelihood"/>
+            </log>
+        </mcmc> -->
+
+    	<mcmc id="hmc" chainLength="200000" autoOptimize="true" storeEvery="0" operatorAnalysis="hmc.ops">
+    		<posterior idref="hmc.posterior"/>
+    		<operators idref="hmc.operators"/>
+            <log logEvery="2000">
+                <column label="Posterior" dp="4" width="12">
+                    <posterior idref="hmc.posterior"/>
+                </column>
+            </log>
+    		<log logEvery="20" fileName="hmc.log">
+    			<posterior idref="hmc.posterior"/>
+    			<prior idref="hmc.prior"/>
                 <likelihood idref="hmc.likelihood"/>
-            </column>
-			<column label="Root Height" sf="6" width="12">
-				<parameter idref="hmc.treeModel.rootHeight"/>
-			</column>
-			<column label="Rate" sf="6" width="12">
-				<rateStatistic idref="clock.rate"/>
-			</column>
-		</log>
-		<log logEvery="10" fileName="hmc.log">
-			<posterior idref="hmc.posterior"/>
-			<prior idref="hmc.prior"/>
-            <likelihood idref="hmc.likelihood"/>
-			<parameter idref="hmc.treeModel.allInternalNodeHeights"/>
-			<parameter idref="hmc.constant.popSize"/>
-			<parameter idref="hmc.kappa"/>
-			<parameter idref="clock.rate"/>
-			<treeLikelihood idref="hmc.treeLikelihood"/>
-		</log>
-	</mcmc>
+    			<parameter idref="hmc.treeModel.allInternalNodeHeights"/>
+    			<parameter idref="hmc.constant.popSize"/>
+    			<parameter idref="kappa"/>
+    			<parameter idref="clock.rate"/>
+    			<treeLikelihood idref="hmc.treeLikelihood"/>
+                <euclidianDistanceStatistic>
+                    <hamilton>
+                        <hamiltonUpdate idref="hamilton"/>
+                    </hamilton>
+                </euclidianDistanceStatistic>
+    		</log>
+    	</mcmc>
+    <!-- </concurrent> -->
+
+    <report>
+        <property name="timer">
+            <mcmc idref="mcmc"/>
+        </property>
+    </report>
 
 	<report>
 		<property name="timer">
