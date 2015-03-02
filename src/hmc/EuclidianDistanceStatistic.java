@@ -5,6 +5,7 @@ import beast.inference.model.Statistic;
 import beast.xml.ObjectElement;
 import beast.xml.Parseable;
 import beast.xml.SimpleXMLObjectParser;
+import beast.xml.SimpleXMLObjectParser.ParserCreationException;
 import beast.xml.XMLObjectParser;
 
 /**
@@ -26,9 +27,17 @@ public class EuclidianDistanceStatistic extends Statistic.Abstract {
 
     @Override
     public double getStatisticValue(int dim) {
-        return hamiltonUpdate.getDistance();
+        return 0.0;//hamiltonUpdate.getDistance();
     }
 
-    public static final XMLObjectParser<EuclidianDistanceStatistic> PARSER = new SimpleXMLObjectParser<>(EuclidianDistanceStatistic.class, "");
+    public static final XMLObjectParser<EuclidianDistanceStatistic> PARSER;
+
+    static {
+        try {
+            PARSER = new SimpleXMLObjectParser(EuclidianDistanceStatistic.class);
+        } catch (ParserCreationException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

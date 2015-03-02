@@ -1,0 +1,286 @@
+<beast>
+
+    <taxa id="taxa">
+        <taxon id="a"/>
+        <taxon id="b"/>
+        <taxon id="c"/>
+        <taxon id="d"/>
+        <taxon id="e"/>
+        <taxon id="f"/>
+        <taxon id="g"/>
+        <taxon id="h"/>
+        <taxon id="i"/>
+        <taxon id="j"/>
+        <taxon id="k"/>
+        <taxon id="l"/>
+        <taxon id="m"/>
+        <taxon id="n"/>
+        <taxon id="o"/>
+        <taxon id="p"/>
+        <taxon id="q"/>
+        <taxon id="r"/>
+        <taxon id="s"/>
+        <taxon id="t"/>
+        <taxon id="u"/>
+        <taxon id="v"/>
+        <taxon id="w"/>
+        <taxon id="x"/>
+        <taxon id="y"/>
+        <taxon id="z"/>
+        <taxon id="aa"/>
+        <taxon id="ab"/>
+        <taxon id="ac"/>
+        <taxon id="ad"/>
+        <taxon id="ae"/>
+        <taxon id="af"/>
+    </taxa>
+
+    <coalescentTree id="trueTree">
+        <taxa idref="taxa"/>
+        <constantSize units="substitutions">
+            <populationSize>
+                <parameter value="0.5"/>
+            </populationSize>
+        </constantSize>
+    </coalescentTree>
+
+    <frequencyModel id="frequencyModel" dataType="nucleotide">
+        <frequencies>
+            <parameter id="frequencies" value="0.35 0.30 0.20 0.15"/>
+        </frequencies>
+    </frequencyModel>
+
+    <sequenceSimulator id="alignment" replications="2048">
+        <beast_siteModel>
+            <substitutionModel>
+                <beast_hkyModel>
+                    <frequencies>
+                        <beast_frequencyModel dataType="nucleotide">
+                            <frequencies>
+                                <parameter idref="frequencies"/>
+                            </frequencies>
+                        </beast_frequencyModel>
+                    </frequencies>
+                    <kappa>
+                        <parameter id="kappa" value="8.0" lower="1.0E-8" upper="Infinity"/>
+                    </kappa>
+                </beast_hkyModel>
+            </substitutionModel>
+        </beast_siteModel>
+        <coalescentTree idref="trueTree"/>
+        <strictClockBranchRates id="branchRates">
+            <rate>
+                <parameter id="clock.rate" value="0.15"/>
+            </rate>
+        </strictClockBranchRates>
+    </sequenceSimulator>
+
+    <patterns id="patterns">
+        <sequenceSimulator idref="alignment"/>
+    </patterns>
+
+    <randomizeHeights id="startingTree">
+        <coalescentTree idref="trueTree"/>
+    </randomizeHeights>
+
+    <constantSize id="mcmc.constant" units="substitutions">
+        <populationSize>
+            <parameter id="mcmc.constant.popSize" value="1.0" lower="0.0" upper="Infinity"/>
+        </populationSize>
+    </constantSize>
+
+    <treeModel id="mcmc.treeModel">
+        <randomizeHeights idref="startingTree"/>
+        <rootHeight>
+            <parameter id="mcmc.treeModel.rootHeight"/>
+        </rootHeight>
+        <nodeHeights internalNodes="true">
+            <parameter id="mcmc.treeModel.internalNodeHeights"/>
+        </nodeHeights>
+        <nodeHeights internalNodes="true" rootNode="true">
+            <parameter id="mcmc.treeModel.allInternalNodeHeights"/>
+        </nodeHeights>
+    </treeModel>
+
+    <coalescentLikelihood id="mcmc.coalescent">
+        <model>
+            <constantSize idref="mcmc.constant"/>
+        </model>
+        <populationTree>
+            <treeModel idref="mcmc.treeModel"/>
+        </populationTree>
+    </coalescentLikelihood>
+
+    <treeLikelihood id="mcmc.treeLikelihood" useAmbiguities="true">
+        <patterns idref="patterns"/>
+        <treeModel idref="mcmc.treeModel"/>
+        <siteModel>
+            <substitutionModel>
+                <hkyModel>
+                    <frequencies>
+                        <frequencyModel idref="frequencyModel"/>
+                    </frequencies>
+                    <kappa>
+                        <parameter idref="kappa"/>
+                    </kappa>
+                </hkyModel>
+            </substitutionModel>
+        </siteModel>
+        <strictClockBranchRates idref="branchRates"/>
+    </treeLikelihood>
+
+    <posterior id="mcmc.posterior">
+        <prior id="mcmc.prior">
+            <oneOnXPrior>
+                <parameter idref="mcmc.constant.popSize"/>
+            </oneOnXPrior>
+            <coalescentLikelihood idref="mcmc.coalescent"/>
+        </prior>
+        <likelihood id="mcmc.likelihood">
+            <treeLikelihood idref="mcmc.treeLikelihood"/>
+        </likelihood>
+    </posterior>
+
+    <operators id="mcmc.operators">
+        <scaleOperator scaleFactor="0.75" weight="3">
+            <parameter idref="mcmc.constant.popSize"/>
+        </scaleOperator>
+        <scaleOperator scaleFactor="0.75" weight="3">
+            <parameter idref="mcmc.treeModel.rootHeight"/>
+        </scaleOperator>
+        <uniformOperator weight="30">
+            <parameter idref="mcmc.treeModel.internalNodeHeights"/>
+        </uniformOperator>
+    </operators>
+
+    <constantSize id="hmc.constant" units="substitutions">
+        <populationSize>
+            <parameter id="hmc.constant.popSize" value="1.0" lower="0.0" upper="Infinity"/>
+        </populationSize>
+    </constantSize>
+
+    <treeModel id="hmc.treeModel">
+        <randomizeHeights idref="startingTree"/>
+        <rootHeight>
+            <parameter id="hmc.treeModel.rootHeight"/>
+        </rootHeight>
+        <nodeHeights internalNodes="true">
+            <parameter id="hmc.treeModel.internalNodeHeights"/>
+        </nodeHeights>
+        <nodeHeights internalNodes="true" rootNode="true">
+            <parameter id="hmc.treeModel.allInternalNodeHeights"/>
+        </nodeHeights>
+    </treeModel>
+
+    <coalescentLikelihood id="hmc.coalescent">
+        <model>
+            <constantSize idref="hmc.constant"/>
+        </model>
+        <populationTree>
+            <treeModel idref="hmc.treeModel"/>
+        </populationTree>
+    </coalescentLikelihood>
+
+    <treeLikelihood id="hmc.treeLikelihood" useAmbiguities="true">
+        <patterns idref="patterns"/>
+        <treeModel idref="hmc.treeModel"/>
+        <siteModel>
+            <substitutionModel>
+                <hkyModel>
+                    <frequencies>
+                        <frequencyModel idref="frequencyModel"/>
+                    </frequencies>
+                    <kappa>
+                        <parameter idref="kappa"/>
+                    </kappa>
+                </hkyModel>
+            </substitutionModel>
+        </siteModel>
+        <strictClockBranchRates idref="branchRates"/>
+    </treeLikelihood>
+
+    <posterior id="hmc.posterior">
+        <prior id="hmc.prior">
+            <oneOnXPrior>
+                <parameter idref="hmc.constant.popSize"/>
+            </oneOnXPrior>
+            <coalescentLikelihood idref="hmc.coalescent"/>
+        </prior>
+        <likelihood id="hmc.likelihood">
+            <treeLikelihood idref="hmc.treeLikelihood"/>
+        </likelihood>
+    </posterior>
+
+    <operators id="hmc.operators">
+        <hamiltonUpdate id="hamilton" weight="1" iterations="128">
+            <potential>
+                <posterior idref="hmc.posterior"/>
+            </potential>
+            <dimensions>
+                <parameter idref="hmc.constant.popSize"/>
+            </dimensions>
+            <trees>
+                <treeModel idref="hmc.treeModel"/>
+            </trees>
+        </hamiltonUpdate>
+    </operators>
+
+    <mcmc id="mcmc" chainLength="200000" autoOptimize="true" autoOptimizeDelay="0" storeEvery="0" operatorAnalysis="mcmc.128.2.ops">
+        <posterior idref="mcmc.posterior"/>
+        <operators idref="mcmc.operators"/>
+        <log logEvery="2000">
+            <column label="Posterior" dp="4" width="12">
+                <posterior idref="mcmc.posterior"/>
+            </column>
+        </log>
+        <log logEvery="20" fileName="mcmc.128.2.log">
+            <posterior idref="mcmc.posterior"/>
+            <prior idref="mcmc.prior"/>
+            <likelihood idref="mcmc.likelihood"/>
+            <parameter idref="mcmc.treeModel.allInternalNodeHeights"/>
+            <parameter idref="mcmc.constant.popSize"/>
+            <parameter idref="kappa"/>
+            <parameter idref="clock.rate"/>
+            <treeLikelihood idref="mcmc.treeLikelihood"/>
+        </log>
+    </mcmc>
+
+    <mcmc id="hmc.128.2" chainLength="200000" autoOptimize="true" autoOptimizeDelay="0" storeEvery="2000" operatorAnalysis="hmc.128.2.ops">
+        <posterior idref="hmc.posterior"/>
+        <operators idref="hmc.operators"/>
+        <log logEvery="2000">
+            <column label="Posterior" dp="4" width="12">
+                <posterior idref="hmc.posterior"/>
+            </column>
+        </log>
+        <log logEvery="20" fileName="hmc.128.2.log">
+            <posterior idref="hmc.posterior"/>
+            <prior idref="hmc.prior"/>
+            <likelihood idref="hmc.likelihood"/>
+            <parameter idref="hmc.treeModel.allInternalNodeHeights"/>
+            <parameter idref="hmc.constant.popSize"/>
+            <parameter idref="kappa"/>
+            <parameter idref="clock.rate"/>
+            <treeLikelihood idref="hmc.treeLikelihood"/>
+            <euclidianDistanceStatistic>
+                <hamilton>
+                    <hamiltonUpdate idref="hamilton"/>
+                </hamilton>
+            </euclidianDistanceStatistic>
+        </log>
+    </mcmc>
+
+    <report>
+        <property name="timer">
+            <mcmc idref="mcmc"/>
+        </property>
+    </report>
+
+    <report>
+        <property name="timer">
+            <mcmc idref="hmc"/>
+        </property>
+    </report>
+
+</beast>
+
