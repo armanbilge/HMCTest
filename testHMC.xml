@@ -248,31 +248,47 @@
         </likelihood>
     </posterior> -->
 
+    <!-- <posterior id="hmc.32.posterior">
+        <prior id="hmc.32.prior">
+            <normalPrior mean="0.9948" stdev="0.0513">
+                <parameter idref="hmc.32.treeModel.rootHeight"/>
+            </normalPrior>
+            <normalPrior mean="7.448E-2" stdev="0.0111">
+                <parameter idref="hmc.32.treeModel.internalNodeHeights"/>
+            </normalPrior>
+        </prior>
+        <likelihood id="hmc.32.likelihood">
+            <dummyModel logL="-4404.4319">
+                <parameter idref="hmc.32.treeModel.rootHeight"/>
+                <parameter idref="hmc.32.treeModel.internalNodeHeights"/>
+            </dummyModel>
+        </likelihood>
+    </posterior> -->
+
     <posterior id="hmc.32.posterior">
         <prior id="hmc.32.prior">
-            <!-- <coalescentLikelihood idref="hmc.32.coalescent"/> -->
-            <multivariateNormalPrior mean="0.9948 7.435E-2" var="2.619581e-03 4.580598e-05 1.949741e-04">
+            <multivariateNormalPrior mean="0.07447646 0.9947984" var="1.24064e-04 0.0000562561 0.0026316385">
                 <parameter idref="hmc.32.treeModel.allInternalNodeHeights"/>
             </multivariateNormalPrior>
         </prior>
         <likelihood id="hmc.32.likelihood">
-            <dummyModel>
+            <dummyModel logL="-4404.4148">
                 <parameter idref="hmc.32.treeModel.allInternalNodeHeights"/>
-                <!-- <parameter idref="hmc.32.treeModel.rootHeight"/>
-                <parameter idref="hmc.32.treeModel.internalNodeHeights"/> -->
             </dummyModel>
         </likelihood>
     </posterior>
 
     <operators id="hmc.32.operators">
-        <hamiltonUpdate weight="1" iterations="8" mass="1 1">
+        <hamiltonUpdate weight="1" iterations="16" mass="8139.2483 -173.9914 383.7108" epsilon="2E-5" autoOptimize="false">
+        <!-- <hamiltonUpdate weight="1" iterations="8" mass="8060.356 379.9914" epsilon="1.586004896708397E-5" autoOptimize="false"> -->
+        <!-- <hamiltonUpdate weight="1" iterations="8" autoOptimize="false" epsilon="0.016"> -->
             <potential>
                 <posterior idref="hmc.32.posterior"/>
             </potential>
             <dimensions>
+                <!-- <parameter idref="hmc.32.treeModel.internalNodeHeights"/>
+                <parameter idref="hmc.32.treeModel.rootHeight"/> -->
                 <parameter idref="hmc.32.treeModel.allInternalNodeHeights"/>
-                <!-- <parameter idref="hmc.32.treeModel.rootHeight"/>
-                <parameter idref="hmc.32.treeModel.internalNodeHeights"/> -->
             </dimensions>
         </hamiltonUpdate>
     </operators>
